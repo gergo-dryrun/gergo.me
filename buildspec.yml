@@ -1,0 +1,15 @@
+version: 0.0
+environment_variables:
+    plaintext:
+        "INPUT_FILE": "saml.yaml"
+        "S3_BUCKET": ""
+containers:
+    LambdaFunctions:
+        phases:
+            during_build:
+                commands:
+                    - gem install jekyll
+                    - jekyll build
+        artifacts:
+            files:
+                - _site/**/*
